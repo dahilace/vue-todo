@@ -1,103 +1,27 @@
 <script setup lang="ts">
-import LayHeader from './components/layouts/LayHeader.vue';
-import LayFooter from './components/layouts/LayFooter.vue';
+import LayHeader from './components/shell/ShellHeader.vue';
+import LayFooter from './components/shell/ShellFooter.vue';
 
-import { ref, watch } from 'vue';
-import { useModalStore } from './stores/modalStore';
-
-const modalStore = useModalStore();
-
-interface Todo {
-  id: number;
-  text: string;
-  isDone: boolean;
-}
-
-// const warningStatus = ref<boolean>(false);
-const tasksArr = ref<Todo[]>([]);
-const inputData = ref('');
-
-const savedTasks = localStorage.getItem('Dahilace:todos');
-if (savedTasks) {
-  tasksArr.value = JSON.parse(savedTasks);
-}
-
-watch(
-  tasksArr,
-  (newTasks) => {
-    localStorage.setItem('Dahilace:todos', JSON.stringify(tasksArr.value));
-  },
-  { deep: true }
-);
-
-function addTask() {
-  tasksArr.value.push({
-    id: Date.now(),
-    text: inputData.value,
-    isDone: false,
-  });
-  inputData.value = '';
-}
-
-function removeTask(id: number) {
-  tasksArr.value = tasksArr.value.filter((task) => task.id !== id);
-}
-
-// Аfunction showWarningDialog() {
-//   warningStatus.value = true;
-//   modalStore.isModalOpen = true;
-// }
-
-function removeAllTasks() {
-  tasksArr.value.length = 0;
-}
+import AppMain from './components/general/AppMain.vue';
 </script>
 
 <template>
-  <div class="wrapper w-full h-full flex flex-col min-h-screen relative">
+  <div
+    class="wrapper px-2 w-full h-screen overflow-hidden flex flex-col min-h-screen relative gap-4"
+  >
     <lay-header />
     <main>
-      <div>
-        <label
-          >Задача:<input
-            v-model="inputData"
-            type="text"
-            placeholder="Введите задачу..."
-        /></label>
-        <button
-          :class="{ disabled: !inputData }"
-          :disabled="!inputData"
-          @click="addTask"
-        >
-          Добавить
-        </button>
-      </div>
-      <div>
-        <p class="uppercase">
-          {{ tasksArr.length ? 'Лист задач' : 'Лист задач пуст' }}
-        </p>
-        <button v-if="tasksArr.length" @click="modalStore.openModal">
-          Удалить всё
-        </button>
-        <ul v-if="tasksArr.length">
-          <li v-for="todo in tasksArr">{{ todo }}</li>
-        </ul>
-      </div>
-      <div @click.self="modalStore.closeModal" v-if="modalStore.isModalOpen">
-        <div>
-          <p>Вы уврены?</p>
-          <button @click="[removeAllTasks(), modalStore.closeModal()]">
-            Удалить
-          </button>
-          <button @click="modalStore.closeModal">Отмена</button>
-        </div>
-      </div>
+      <app-main />
     </main>
     <lay-footer class="mt-auto" />
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '@/assets/styles/mixins' as mixin;
+.wrapper {
+  @include mixin.bg-gradient;
+}
 /* .dialog {
   width: 100%;
   height: 100%;
