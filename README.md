@@ -1,33 +1,60 @@
-# vue-todo
+Функционал:
 
-This template should help get you started developing with Vue 3 in Vite.
+Добавление задач
+Редактирование задач (с поддержкой Shift+Enter для переноса строки)
+Отметка задач как выполненных
+Удаление задач
+Сохранение списка задач в LocalStorage
+Адаптивный дизайн с TailwindCSS
+Отображение даты/времени создания задачи
+--
 
-## Recommended IDE Setup
+Технологии:
+Vue 3
+TypeScript
+Pinia - управление состоянием
+Vite - сборка проекта
+TailwindCSS, SCSS - стилизация
+--
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Установка и запуск:
 
-## Type Support for `.vue` Imports in TS
+# Клонируем репозиторий
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+git clone https://github.com/username/todo-app.git
 
-## Customize configuration
+cd todo-app
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+# Устанавливаем зависимости
 
-## Project Setup
-
-```sh
 npm install
-```
 
-### Compile and Hot-Reload for Development
+# Запускаем проект в dev-режиме
 
-```sh
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
+# Сборка для продакшена
 
-```sh
 npm run build
-```
+
+# Предпросмотр собранного проекта
+
+## npm run preview
+
+Структура проекта:
+
+src/
+assets/ - Стили, иконки
+components/ - Компоненты приложения
+stores/ - Pinia store (todos.ts)
+App.vue - Главный компонент
+main.ts - Точка входа
+--
+
+Планы:
+Фильтрация задач (Все / Активные / Завершённые)
+Drag-and-drop сортировка задач
+Авторизация и синхронизация с сервером
+
+Лицензия:
+MIT — используй свободно
