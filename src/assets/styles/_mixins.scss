@@ -1,0 +1,12 @@
+@mixin card-visual {
+  background-color: rgb(252, 250, 245);
+  border-radius: 4px 4px 16px 4px;
+  box-shadow: 1px 1px 1px 1px var(--main-color);
+}
+@mixin bg-gradient {
+  background-image: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}

@@ -1,1 +1,1 @@
-:root{--index: 1vw + 1vh;--main-color: #000;--main-bg: #fff;--accent-color: #654321}
+:root{--index: 1vw + 1vh;--main-color: #000;--main-bg: #fff;--main-overlay: #ffffff78;--accent-color: coral;--accent-color-op: color-mix(in srgb, coral 25%, transparent 100%)}
