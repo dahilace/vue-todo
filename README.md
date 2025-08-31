@@ -21,9 +21,9 @@ TailwindCSS, SCSS - стилизация
 
 # Клонируем репозиторий
 
-git clone https://github.com/username/todo-app.git
+git clone https://github.com/dahilace/vue-todo.git
 
-cd todo-app
+cd vue-todo
 
 # Устанавливаем зависимости
 
